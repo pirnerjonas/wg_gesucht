@@ -17,3 +17,4 @@ class WgItem(scrapy.Item):
     price = scrapy.Field()
     timespan = scrapy.Field()
     squaremeter = scrapy.Field()
+    post_time = scrapy.Field()
