@@ -20,8 +20,9 @@ def load_and_append():
         # merge old and new
         apartment_df = pd.merge(archive_df, current_df, how='outer', indicator=True)
         # make it clear where the data comes from
-        apartment_df['_merge'] = apartment_df['_merge'].str.replace('left', 'archive')
-        apartment_df['_merge'] = apartment_df['_merge'].str.replace('right', 'current')
+        apartment_df['_merge'] = apartment_df['_merge'].str.replace('left_only', 'historic')
+        apartment_df['_merge'] = apartment_df['_merge'].str.replace('right_only', 'new')
+        apartment_df['_merge'] = apartment_df['_merge'].str.replace('both', 'current')
         print(apartment_df['_merge'].value_counts())
         print('='*80)
         print('successfully appended data to the archive')
