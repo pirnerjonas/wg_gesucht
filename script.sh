@@ -16,4 +16,10 @@ cd ..
 # start preprocessing
 python preprocessing.py
 
+git add .
+git commit -m "push data from automatic run"
+git push
 
+git push heroku-staging master
+
+heroku ps:scale web=1 
