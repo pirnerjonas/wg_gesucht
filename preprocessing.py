@@ -16,7 +16,7 @@ def load_and_append():
     if os.path.isfile(os.path.join(DATA_DIR, 'archive.csv')):
         archive_df = pd.read_csv(os.path.join(DATA_DIR, 'archive.csv'))
         # save raw archive
-        archive_df.to_csv(os.path.join(DATA_DIR, 'archive.csv'))
+        archive_df.to_csv(os.path.join(DATA_DIR, 'archive.csv'), index=False)
         # merge old and new
         apartment_df = pd.merge(archive_df, current_df, how='outer', indicator=True)
         # make it clear where the data comes from
